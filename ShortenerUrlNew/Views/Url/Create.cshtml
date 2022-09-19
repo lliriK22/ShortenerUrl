@@ -1,0 +1,19 @@
+﻿@model Url
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="addClient">Добавление URL</h4>
+    </div>
+    <div class="modal-body">
+        <form asp-controller="Url" asp-action="Create" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group ">
+                <label asp-for="longUrl">Оригинальный URL:</label>
+                <input asp-for="longUrl" type="text" class="form-control" />
+            </div>
+            <div class="form-btn-add">
+                <button type="submit" class="btn btn-primary button_action" data-add="modal" id="form_btn_send">Добавить и сократить</button>
+            </div>
+        </form>
+    </div>
+</div>

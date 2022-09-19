@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Url>
+
+<h1 style="margin: 30px 0px;">URL TABLE</h1>
+
+<div class="main_body">
+    <div id="modDialog" class="modal fade" >
+        <div id="dialogContent" class="modal-dialog"></div>
+    </div>
+
+    <div class="btn_nav">
+        <div class="btn_add_obj">
+            <a asp-controller="Url" asp-action="Create" class="btn-info open_modal_window">Добавить URL</a>
+        </div>
+    </div>
+
+    <div class="table_main">
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Оригинальный URL</th>
+            <th scope="col">Короткий URL</th>
+            <th scope="col">Время создания</th>
+            <th scope="col">Кол-во переходов</th>
+            <th>Настройки</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.Id</td>
+                    <td style="word-break:break-all;">@obj.longUrl</td>
+                    <td>@obj.shortUrl</td>
+                    <td>@obj.dateTime</td>
+                    <td>@obj.countTransitionUrl</td>
+                    <td>
+                        <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Действия
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item open_modal_window" asp-controller="Url" asp-action="Edit" asp-route-id="@obj.Id">Обновить</a></li>
+                            <li><a class="dropdown-item open_modal_window" asp-controller="Url" asp-action="Delete" asp-route-id="@obj.Id">Удалить</a></li>
+                          </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>
+
+@section Scripts
+{
+  <script>
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $(".open_modal_window").click(function (e) {
+ 
+            e.preventDefault();
+            $.get(this.href, function (data) {
+                $('#dialogContent').html(data);
+                $('#modDialog').modal('show');
+            });
+        });
+    })
+  </script>
+}

@@ -1,0 +1,54 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*My style*/
+.table_main {
+    border: 10px solid #009D91;
+    margin-top: 15px;
+}
+
+    .table_main table {
+        width: 100%;
+    }
+
+    .table_main th, .table_main td {
+        font-weight: 400;
+    }
+
+.table tr td.td2:last-child {
+    word-break: break-word;
+}
+
+.btn_add_obj a {
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.dropdown .btn {
+    background-color: #33CEC3;
+    color: black;
+    border: 1px solid #33CEC3;
+}
+
+.modal-content .button_action {
+    background-color: #5DCEC6;
+    border: none;
+    color: black;
+    margin: 10px 0px;
+}

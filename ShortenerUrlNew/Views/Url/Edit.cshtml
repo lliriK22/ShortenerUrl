@@ -1,0 +1,31 @@
+﻿@model Url
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="addClient">Обновить короткий URL?</h4>
+    </div>
+    <div class="modal-body">
+        <form asp-controller="Url" asp-action="Edit" method="post">
+            <input asp-for="Id" hidden />
+            <div class="form-group ">
+                <label asp-for="longUrl">Оригинальный URL:</label>
+                <input asp-for="longUrl" type="text" class="form-control" readonly />
+            </div>
+            <div class="form-group ">
+                <label asp-for="shortUrl">Короткий URL:</label>
+                <input asp-for="shortUrl" type="text" class="form-control" readonly />
+            </div>
+            <div class="form-group ">
+                <label asp-for="dateTime">Время создания:</label>
+                <input asp-for="dateTime" type="text" class="form-control" readonly />
+            </div>
+            <div class="form-group ">
+                <label asp-for="countTransitionUrl">Кол-во переходов:</label>
+                <input asp-for="countTransitionUrl" type="text" class="form-control" readonly />
+            </div>
+            <div class="form-btn-add">
+                <button type="submit" class="btn btn-primary button_action" data-add="modal">Да</button>
+            </div>
+        </form>
+    </div>
+</div>
